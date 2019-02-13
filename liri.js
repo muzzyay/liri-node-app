@@ -18,7 +18,7 @@ function song() {
             .request('https://api.spotify.com/v1/tracks/3DYVWvPh3kGwPasp7yjahc')
             .then(function (data) {
 
-                text = "\nArtists: " + data.artists[0].name + "\nSong Name: " + data.name + "\nSong's Link: " + data.external_urls.spotify + "\nAlbum: " + data.album.name + "\n-----------------------------";
+                text = "\nArtists: " + data.artists[0].name + "\nSong Name: " + data.name + "\nSong's Link: " + data.preview_url + "\nAlbum: " + data.album.name + "\n-----------------------------";
                 console.log(text);
                 datalog(text);
 
@@ -30,8 +30,8 @@ function song() {
         spotify
             .search({ type: 'track', query: name, limit: 1 })
             .then(function (response) {
-
-                text = "\nArtists: " + response.tracks.items[0].album.artists[0].name + "\nSong Name: " + response.tracks.items[0].name + "\nSong's Link: " + response.tracks.items[0].external_urls.spotify + "\nAlbum: " + response.tracks.items[0].album.name + "\n-----------------------------";
+                
+                text = "\nArtists: " + response.tracks.items[0].album.artists[0].name + "\nSong Name: " + response.tracks.items[0].name + "\nSong's Link: " + response.tracks.items[0].preview_url + "\nAlbum: " + response.tracks.items[0].album.name + "\n-----------------------------";
                 console.log(text);
                 datalog(text);
             })
